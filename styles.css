@@ -1,10 +1,12 @@
 main {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
 }
 
 #grid-container {
   max-width: 800px;
-  margin: auto;
   border-bottom: 1px solid lightblue;
   border-right: 1px solid lightblue;
   margin-top: 48px;
@@ -16,15 +18,10 @@ main {
 }
 
 .rowBox {
-  box-sizing: content-box;
   flex: 1;
   border: 1px solid lightblue;
   border-bottom: none;
   border-right: none;
   height: 50px;
   text-align: center;
-}
-
-.rowBox:hover {
-  background-color: blue;
 }
