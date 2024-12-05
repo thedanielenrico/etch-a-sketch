@@ -3,6 +3,17 @@ main {
   align-items: center;
   justify-content: center;
   gap: 48px;
+  margin-bottom: 48px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input[type="range"] {
+  writing-mode: vertical-lr;
 }
 
 #grid-container {
