@@ -1,6 +1,30 @@
+main {
+  display: flex;
+}
+
 #grid-container {
-  border: 1px solid black;
   max-width: 800px;
-  height: 800px;
   margin: auto;
+  border-bottom: 1px solid lightblue;
+  border-right: 1px solid lightblue;
+  margin-top: 48px;
+  flex: 1;
+}
+
+.row {
+  display: flex;
+}
+
+.rowBox {
+  box-sizing: content-box;
+  flex: 1;
+  border: 1px solid lightblue;
+  border-bottom: none;
+  border-right: none;
+  height: 50px;
+  text-align: center;
+}
+
+.rowBox:hover {
+  background-color: blue;
 }
