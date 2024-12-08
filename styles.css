@@ -16,6 +16,10 @@ input[type="range"] {
   writing-mode: vertical-lr;
 }
 
+#slider-label {
+  text-align: center;
+}
+
 #grid-container {
   max-width: 800px;
   max-height: 800px;

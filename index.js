@@ -29,12 +29,14 @@ function createGrid(gridDimension) {
       gridContainer.appendChild(row);
       Array(gridDimension)
         .fill(undefined)
-        .map((val, idx) => {
+        .map(() => {
           const rowBox = document.createElement("div");
           rowBox.className = "rowBox";
-          rowBox.addEventListener("mouseenter", () => {
-            rowBox.style.backgroundColor = "blue";
-            rowBox.style.borderColor = "blue";
+          rowBox.addEventListener("mouseenter", (e) => {
+            if (!e.metaKey) {
+              rowBox.style.backgroundColor = "blue";
+              rowBox.style.borderColor = "blue";
+            }
           });
           rowBoxes.push(rowBox);
           row.appendChild(rowBox);
