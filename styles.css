@@ -18,6 +18,8 @@ input[type="range"] {
 
 #grid-container {
   max-width: 800px;
+  max-height: 800px;
+  overflow: hidden;
   border-bottom: 1px solid lightblue;
   border-right: 1px solid lightblue;
   margin-top: 48px;
@@ -29,10 +31,10 @@ input[type="range"] {
 }
 
 .rowBox {
-  flex: 1;
+  flex: 1 0 auto;
+  aspect-ratio: 1/1;
   border: 1px solid lightblue;
   border-bottom: none;
   border-right: none;
-  height: 50px;
   text-align: center;
 }
