@@ -1,24 +1,18 @@
-const MAX_HEIGHT = 900;
-
 const DEFAULT_GRID_SIZE = 16;
-const rowBoxes = [];
+
 const gridContainer = document.getElementById("grid-container");
 const clearBtn = document.getElementById("clear-btn");
 const rowAmountSlider = document.getElementById("box-range-slider");
 const sliderLabel = document.getElementById("slider-label");
 
+let sliderValue = DEFAULT_GRID_SIZE;
+
 rowAmountSlider.addEventListener("input", (e) => {
-  gridContainer.innerHTML = "";
-  sliderLabel.innerText = e.target.value;
-  createGrid(Number(e.target.value));
+  clearGrid(Number(e.target.value));
 });
 
 clearBtn.addEventListener("click", () => {
-  rowBoxes.forEach((box) => {
-    box.style.backgroundColor = "initial";
-    box.style.borderColor = "lightblue";
-    box.style.opacity = 1;
-  });
+  clearGrid(sliderValue);
 });
 
 function createGrid(gridDimension) {
@@ -43,14 +37,19 @@ function createGrid(gridDimension) {
                   Math.floor((brightness - 0.1) * 10) / 10
                 })`;
                 brightness = Math.floor((brightness - 0.1) * 10) / 10;
-                console.log("brightness", brightness);
               }
             }
           });
-          rowBoxes.push(rowBox);
+
           row.appendChild(rowBox);
         });
     });
 }
 
+function clearGrid(gridSize) {
+  gridContainer.innerHTML = "";
+  sliderLabel.innerText = gridSize;
+  sliderValue = gridSize;
+  createGrid(gridSize);
+}
 createGrid(DEFAULT_GRID_SIZE);
