@@ -10,14 +10,17 @@
     <main>
       <div class="controls">
         <button id="clear-btn">Clear</button>
-        <label for="box-range-slider" id="slider-label">16</label>
-        <input
-          type="range"
-          min="16"
-          max="100"
-          id="box-range-slider"
-          value="16"
-        />
+        <input type="color" id="user-color" value="#0000ff" />
+        <div class="slider-container">
+          <label for="box-range-slider" id="slider-label">16</label>
+          <input
+            type="range"
+            min="16"
+            max="100"
+            id="box-range-slider"
+            value="16"
+          />
+        </div>
       </div>
       <div id="grid-container"></div>
     </main>

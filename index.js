@@ -4,11 +4,21 @@ const gridContainer = document.getElementById("grid-container");
 const clearBtn = document.getElementById("clear-btn");
 const rowAmountSlider = document.getElementById("box-range-slider");
 const sliderLabel = document.getElementById("slider-label");
+const colorPicker = document.getElementById("user-color");
 
 let sliderValue = DEFAULT_GRID_SIZE;
 
-rowAmountSlider.addEventListener("input", (e) => {
+let boxColor = "blue";
+
+colorPicker.addEventListener("input", (e) => {
+  boxColor = e.target.value;
+});
+
+rowAmountSlider.addEventListener("mouseup", (e) => {
   clearGrid(Number(e.target.value));
+});
+rowAmountSlider.addEventListener("input", (e) => {
+  updateGridSizeLabel(Number(e.target.value));
 });
 
 clearBtn.addEventListener("click", () => {
@@ -30,8 +40,8 @@ function createGrid(gridDimension) {
           rowBox.className = "rowBox";
           rowBox.addEventListener("mouseenter", (e) => {
             if (!e.metaKey) {
-              rowBox.style.backgroundColor = "blue";
-              rowBox.style.borderColor = "blue";
+              rowBox.style.backgroundColor = boxColor;
+              rowBox.style.borderColor = boxColor;
               if (brightness > 0) {
                 rowBox.style.filter = `brightness(${
                   Math.floor((brightness - 0.1) * 10) / 10
@@ -44,6 +54,11 @@ function createGrid(gridDimension) {
           row.appendChild(rowBox);
         });
     });
+}
+
+function updateGridSizeLabel(gridSize) {
+  sliderLabel.innerText = gridSize;
+  sliderValue = gridSize;
 }
 
 function clearGrid(gridSize) {
