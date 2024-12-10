@@ -17,6 +17,12 @@ main {
   width: fit-content;
 }
 
+.controls > p {
+  font-size: 12px;
+  max-width: 80px;
+  text-align: center;
+}
+
 input[type="range"] {
   writing-mode: vertical-lr;
 }
